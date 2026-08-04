@@ -23,7 +23,7 @@ public class Card {
     }
 
     public String getCard() {
-        String card = "[" + value + "]";
+        String card;
 
         switch (color) {
             case "RED":
@@ -41,6 +41,8 @@ public class Card {
             case "GRAY":
                 card = GRAY + "[" + value + "]" + RESET;
                 break;
+            default:
+                card = "[" + value + "]";
         }
 
         return card;

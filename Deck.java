@@ -8,16 +8,7 @@ public class Deck {
     public Deck() {
         this.deck = new ArrayList<>();
         initializeDeck();
-    }
-
-    public String showTopCard() {
-        String s;
-
-        if (isDeckEmpty())
-            s = "[Empty]";
-        else s = deck.get(deck.size() - 1).getCard();
-
-        return s;
+        shuffleDeck();
     }
 
     public Card drawCard() {
