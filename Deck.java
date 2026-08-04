@@ -73,14 +73,4 @@ public class Deck {
             deck.set(randIdx, temp);
         }
     }
-
-    /*public void displayDeck() {
-        if (isDeckEmpty())
-            System.out.println("[Empty]");
-        else {
-            for (Card card : deck)
-                System.out.print(card.getCard() + " ");
-            System.out.println();
-        }
-    }*/
 }
