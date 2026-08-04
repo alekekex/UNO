@@ -47,4 +47,8 @@ public class Card {
 
         return card;
     }
+
+    public void applyCardEffect(UNO game) {
+        // nothing (for now)
+    }
 }
