@@ -13,4 +13,32 @@ public class Player {
     public String getName() {
         return name;
     }
+
+    public int getHandSize() {
+        return hand.size();
+    }
+
+    public boolean isHandEmpty() {
+        return hand.isEmpty();
+    }
+
+    public void receiveCard(Card card) {
+        hand.add(card);
+    }
+
+    public Card playCard(int idx) {
+        Card card = hand.get(idx - 1);
+        hand.remove(idx - 1);
+
+        return card;
+    }
+
+    public void displayHand() {
+        if (isHandEmpty())
+            System.out.println("[Empty]");
+        else {
+            for (int i = 0; i < hand.size(); i++)
+                System.out.println((i + 1) + ") " + hand.get(i).getCard());
+        }
+    }
 }
