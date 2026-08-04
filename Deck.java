@@ -9,14 +9,6 @@ public class Deck {
         this.deck = new ArrayList<>();
     }
 
-    public void addCard(Card card) {
-        deck.add(card);
-    }
-
-    public void removeCard(Card card) {
-        deck.remove(card);
-    }
-
     public Card drawCard() {
         Card card = deck.get(deck.size() - 1);
         deck.remove(deck.size() - 1);
