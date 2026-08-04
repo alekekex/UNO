@@ -10,6 +10,16 @@ public class Deck {
         initializeDeck();
     }
 
+    public String showTopCard() {
+        String s;
+
+        if (isDeckEmpty())
+            s = "[Empty]";
+        else s = deck.get(deck.size() - 1).getCard();
+
+        return s;
+    }
+
     public Card drawCard() {
         Card card = deck.get(deck.size() - 1);
         deck.remove(deck.size() - 1);
@@ -73,12 +83,13 @@ public class Deck {
         }
     }
 
-    public void displayDeck() {
+    /*public void displayDeck() {
         if (isDeckEmpty())
             System.out.println("[Empty]");
         else {
             for (Card card : deck)
-                System.out.println(card.getCard());
+                System.out.print(card.getCard() + " ");
+            System.out.println();
         }
-    }
+    }*/
 }
