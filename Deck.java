@@ -26,38 +26,38 @@ public class Deck {
     }
 
     public void initializeDeck() {
-        deck.add(new Card("NORMAL", "0", "RED"));
-        deck.add(new Card("NORMAL", "0", "GREEN"));
-        deck.add(new Card("NORMAL", "0", "YELLOW"));
-        deck.add(new Card("NORMAL", "0", "BLUE"));
+        deck.add(new NormalCard("0", "RED"));
+        deck.add(new NormalCard("0", "GREEN"));
+        deck.add(new NormalCard("0", "YELLOW"));
+        deck.add(new NormalCard("0", "BLUE"));
 
         for (int i = 0; i < 2; i++) {
             for (int j = 0; j < 9; j++) {
-                deck.add(new Card("NORMAL", String.valueOf(j + 1), "RED"));
-                deck.add(new Card("NORMAL", String.valueOf(j + 1), "GREEN"));
-                deck.add(new Card("NORMAL", String.valueOf(j + 1), "YELLOW"));
-                deck.add(new Card("NORMAL", String.valueOf(j + 1), "BLUE"));
+                deck.add(new NormalCard(String.valueOf(j + 1), "RED"));
+                deck.add(new NormalCard(String.valueOf(j + 1), "GREEN"));
+                deck.add(new NormalCard(String.valueOf(j + 1), "YELLOW"));
+                deck.add(new NormalCard(String.valueOf(j + 1), "BLUE"));
             }
 
-            deck.add(new Card("ACTION", "S", "RED"));
-            deck.add(new Card("ACTION", "S", "GREEN"));
-            deck.add(new Card("ACTION", "S", "YELLOW"));
-            deck.add(new Card("ACTION", "S", "BLUE"));
+            deck.add(new ActionCard("S", "RED"));
+            deck.add(new ActionCard("S", "GREEN"));
+            deck.add(new ActionCard("S", "YELLOW"));
+            deck.add(new ActionCard("S", "BLUE"));
 
-            deck.add(new Card("ACTION", "R", "RED"));
-            deck.add(new Card("ACTION", "R", "GREEN"));
-            deck.add(new Card("ACTION", "R", "YELLOW"));
-            deck.add(new Card("ACTION", "R", "BLUE"));
+            deck.add(new ActionCard("R", "RED"));
+            deck.add(new ActionCard("R", "GREEN"));
+            deck.add(new ActionCard("R", "YELLOW"));
+            deck.add(new ActionCard("R", "BLUE"));
 
-            deck.add(new Card("ACTION", "+2", "RED"));
-            deck.add(new Card("ACTION", "+2", "GREEN"));
-            deck.add(new Card("ACTION", "+2", "YELLOW"));
-            deck.add(new Card("ACTION", "+2", "BLUE"));
+            deck.add(new ActionCard("+2", "RED"));
+            deck.add(new ActionCard("+2", "GREEN"));
+            deck.add(new ActionCard("+2", "YELLOW"));
+            deck.add(new ActionCard("+2", "BLUE"));
         }
 
         for (int i = 0; i < 4; i++) {
-            deck.add(new Card("WILD", "CC", "GRAY"));
-            deck.add(new Card("WILD", "+4", "GRAY"));
+            deck.add(new WildCard("CC"));
+            deck.add(new WildCard("+4"));
         }
     }
 

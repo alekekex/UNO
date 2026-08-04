@@ -6,18 +6,12 @@ public class Card {
     private static final String GRAY = "\u001B[38;5;244m";
     private static final String RESET = "\u001B[0m";
 
-    private String type;
     private String value;
     private String color;
 
-    public Card(String type, String value, String color) {
-        this.type = type;
+    public Card(String value, String color) {
         this.value = value;
         this.color = color;
-    }
-
-    public String getType() {
-        return type;
     }
 
     public String getValue() {
