@@ -33,7 +33,7 @@ public class Player {
         return card;
     }
 
-    public void displayHand() {
+    public void showHand() {
         if (isHandEmpty())
             System.out.println("[Empty]");
         else {
