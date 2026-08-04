@@ -50,6 +50,7 @@ public class Deck {
         else {
             for (Card card : deck)
                 System.out.print(card.getCard() + " ");
+            System.out.println();
         }
     }
 }
