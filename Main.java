@@ -1,3 +1,5 @@
+import java.util.InputMismatchException;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -9,19 +11,22 @@ public class Main {
             System.out.println("Welcome to UNO!");
             System.out.println("1) Play Game");
             System.out.println("2) Exit Program");
-
-            int choice = sc.nextInt();
-            sc.nextLine();
+            int choice = Input.getIntInput(sc, "Enter your choice: ", 1, 2);
 
             switch (choice) {
                 case 1:
                     UNO game = new UNO();
-                    // player initialization and game start
+
+                    int count = Input.getIntInput(sc, "Enter number of players: ", 2, -1);
+                    List<String> names = Input.getPlayerNames(sc, count);
+
+                    game.initializePlayers(names);
+                    game.playGame(sc);
                     break;
                 case 2:
+                    isRunning = false;
+                    System.out.println("Exiting the program. Goodbye!");
                     break;
-                default:
-                    System.out.println("Invalid option! Try again.");
             }
         }
 
