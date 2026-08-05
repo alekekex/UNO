@@ -17,7 +17,7 @@ public class Main {
                 case 1:
                     UNO game = new UNO();
 
-                    int count = Input.getIntInput(sc, "Enter number of players: ", 2, -1);
+                    int count = Input.getIntInput(sc, "Enter number of players: ", 2, 15);
                     List<String> names = Input.getPlayerNames(sc, count);
 
                     game.initializePlayers(names);
