@@ -18,6 +18,10 @@ public class Deck {
         return card;
     }
 
+    public void addCardToBottom(Card card) {
+        deck.add(0, card);
+    }
+
     public int getDeckSize() {
         return deck.size();
     }
