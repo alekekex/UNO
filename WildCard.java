@@ -5,6 +5,18 @@ public class WildCard extends Card {
 
     @Override
     public void applyCardEffect(UNO game) {
-        System.out.println("Wild Card Effect Implemented!");
+        switch (getValue()) {
+            case "CC":
+                System.out.println("Effect: Changed Color!"); // temp
+                break;
+            case "+4":
+                System.out.println("Effect: Added 4 cards to next player and changed color!"); // temp
+                break;
+        }
+    }
+
+    @Override
+    public boolean canPlayOn(Card card) {
+        return true;
     }
 }

@@ -49,6 +49,10 @@ public class Card {
     }
 
     public void applyCardEffect(UNO game) {
-        System.out.println("No effect...");
+        System.out.println("Effect: None"); // temp
+    }
+
+    public boolean canPlayOn(Card card) {
+        return this.getColor().equals(card.getColor()) || this.getValue().equals(card.getValue()); // temp
     }
 }
