@@ -4,7 +4,9 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Input {
-    public static int getIntInput(Scanner sc, String prompt, int min, int max) {
+    private static final Scanner sc = new Scanner(System.in);
+
+    public static int getIntInput(String prompt, int min, int max) {
         boolean isValid = false;
         int n = -1;
 
@@ -33,7 +35,7 @@ public class Input {
         return n;
     }
 
-    public static List<String> getPlayerNames(Scanner sc, int n) {
+    public static List<String> getPlayerNames(int n) {
         List<String> names = new ArrayList<>();
         boolean isValid;
         String name;
@@ -54,5 +56,9 @@ public class Input {
         }
 
         return names;
+    }
+
+    public static void close() {
+        sc.close();
     }
 }
