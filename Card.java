@@ -49,6 +49,6 @@ public class Card {
     }
 
     public void applyCardEffect(UNO game) {
-        // nothing (for now)
+        System.out.println("No effect...");
     }
 }
