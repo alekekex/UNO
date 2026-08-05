@@ -22,15 +22,16 @@ public class Player {
         return hand.isEmpty();
     }
 
+    public Card getCard(int idx) {
+        return hand.get(idx - 1);
+    }
+
     public void receiveCard(Card card) {
         hand.add(card);
     }
 
-    public Card playCard(int idx) {
-        Card card = hand.get(idx - 1);
+    public void playCard(int idx) {
         hand.remove(idx - 1);
-
-        return card;
     }
 
     public void showHand() {
