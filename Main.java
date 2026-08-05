@@ -4,26 +4,25 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
         boolean isRunning = true;
 
         while (isRunning) {
             System.out.println("Welcome to UNO!");
             System.out.println("1) Play Game");
             System.out.println("2) Exit Program");
-            int choice = Input.getIntInput(sc, "Enter your choice: ", 1, 2);
+            int choice = Input.getIntInput("Enter your choice: ", 1, 2);
             System.out.println();
 
             switch (choice) {
                 case 1:
                     UNO game = new UNO();
 
-                    int count = Input.getIntInput(sc, "Enter number of players: ", 2, 15);
-                    List<String> names = Input.getPlayerNames(sc, count);
+                    int count = Input.getIntInput("Enter number of players: ", 2, 15);
+                    List<String> names = Input.getPlayerNames(count);
                     System.out.println();
 
                     game.initializePlayers(names);
-                    game.playGame(sc);
+                    game.playGame();
                     break;
                 case 2:
                     isRunning = false;
@@ -32,6 +31,6 @@ public class Main {
             }
         }
 
-        sc.close();
+        Input.close();
     }
 }
