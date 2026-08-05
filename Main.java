@@ -12,6 +12,7 @@ public class Main {
             System.out.println("1) Play Game");
             System.out.println("2) Exit Program");
             int choice = Input.getIntInput(sc, "Enter your choice: ", 1, 2);
+            System.out.println();
 
             switch (choice) {
                 case 1:
@@ -19,6 +20,7 @@ public class Main {
 
                     int count = Input.getIntInput(sc, "Enter number of players: ", 2, 15);
                     List<String> names = Input.getPlayerNames(sc, count);
+                    System.out.println();
 
                     game.initializePlayers(names);
                     game.playGame(sc);
