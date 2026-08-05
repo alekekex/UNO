@@ -35,11 +35,7 @@ public class Player {
     }
 
     public void showHand() {
-        if (isHandEmpty())
-            System.out.println("[Empty]");
-        else {
-            for (int i = 0; i < hand.size(); i++)
-                System.out.println((i + 1) + ") " + hand.get(i).getCard());
-        }
+        for (int i = 0; i < hand.size(); i++)
+            System.out.println((i + 1) + ") " + hand.get(i).getCard());
     }
 }
