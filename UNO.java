@@ -167,7 +167,7 @@ public class UNO {
 
     public void reverseDirection() {
         if (players.size() == 2)
-            skipNextPlayer();
+            advanceTurn();
         else direction = -direction;
     }
 
@@ -177,7 +177,7 @@ public class UNO {
 
     public void drawTwo() {
         int nextPlayerIdx = (playerIdx + direction + players.size()) % players.size();
-        skipNextPlayer();
+        advanceTurn();
 
         for (int i = 0; i < 2; i++)
             players.get(nextPlayerIdx).receiveCard(deck.drawCard());
@@ -211,7 +211,7 @@ public class UNO {
     public void drawFour(WildCard card) {
         int nextPlayerIdx = (playerIdx + direction + players.size()) % players.size();
         changeColor(card);
-        skipNextPlayer();
+        advanceTurn();
 
         for (int i = 0; i < 4; i++)
             players.get(nextPlayerIdx).receiveCard(deck.drawCard());
