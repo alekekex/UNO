@@ -77,9 +77,9 @@ public class UNO {
     }
 
     public void playTurn(Player player) {
-        boolean isTurnOver = false;
+        boolean isOver = false;
 
-        while (!isTurnOver) {
+        while (!isOver) {
             System.out.println(player.getName() + ", what is your move?");
             System.out.println("1) Play Card");
             System.out.println("2) Draw Card");
@@ -87,10 +87,10 @@ public class UNO {
 
             switch (choice) {
                 case 1:
-                    isTurnOver = handlePlayCard(player);
+                    isOver = handlePlayCard(player);
                     break;
                 case 2:
-                    isTurnOver = handleDrawCard(player);
+                    isOver = handleDrawCard(player);
                     break;
             }
         }
@@ -199,21 +199,30 @@ public class UNO {
     }
 
     public void reverseDirection() {
+        System.out.println("Turn order reversed successfully!");
+
         if (players.size() == 2)
             advanceTurn();
         else direction = -direction;
     }
 
     public void skipNextPlayer() {
+        int nextPlayerIdx = (playerIdx + direction + players.size()) % players.size();
+        Player nextPlayer = players.get(nextPlayerIdx);
+        System.out.println(nextPlayer.getName() + " loses their turn!");
+
         advanceTurn();
     }
 
     public void drawTwo() {
         int nextPlayerIdx = (playerIdx + direction + players.size()) % players.size();
+        Player nextPlayer = players.get(nextPlayerIdx);
+        System.out.println(nextPlayer.getName() + " draws 2 cards and loses their turn!");
+
         advanceTurn();
 
         for (int i = 0; i < 2; i++)
-            players.get(nextPlayerIdx).receiveCard(deck.drawCard());
+            nextPlayer.receiveCard(deck.drawCard());
     }
 
     public void changeColor(WildCard card) {
@@ -238,15 +247,19 @@ public class UNO {
                 break;
         }
 
-        System.out.println("Active Color: " + card.getActiveColor());
+        System.out.println("Active color set to " + card.getActiveColor() + "!");
     }
 
     public void drawFour(WildCard card) {
-        int nextPlayerIdx = (playerIdx + direction + players.size()) % players.size();
         changeColor(card);
+
+        int nextPlayerIdx = (playerIdx + direction + players.size()) % players.size();
+        Player nextPlayer = players.get(nextPlayerIdx);
+        System.out.println(nextPlayer.getName() + " draws 4 cards and loses their turn!");
+
         advanceTurn();
 
         for (int i = 0; i < 4; i++)
-            players.get(nextPlayerIdx).receiveCard(deck.drawCard());
+            nextPlayer.receiveCard(deck.drawCard());
     }
 }
