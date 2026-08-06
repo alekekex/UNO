@@ -18,6 +18,10 @@ public class Player {
         return hand.size();
     }
 
+    public boolean hasUno() {
+        return hand.size() == 1;
+    }
+
     public boolean isHandEmpty() {
         return hand.isEmpty();
     }
@@ -37,5 +41,9 @@ public class Player {
     public void showHand() {
         for (int i = 0; i < hand.size(); i++)
             System.out.println((i + 1) + ") " + hand.get(i).getCard());
+    }
+
+    public void shoutUno() {
+        System.out.println(name + " shouts UNO!");
     }
 }
