@@ -73,6 +73,12 @@ public class UNO {
 
                             System.out.println();
                             System.out.println("Top Card: " + pile.get(pile.size() - 1).getCard());
+
+                            if (pile.get(pile.size() - 1) instanceof WildCard &&
+                                    !pile.get(pile.size() - 1).getColor().equals("NONE"))
+                                System.out.println("Active Color: " +
+                                        toTitleCase(pile.get(pile.size() - 1).getColor()));
+
                             chosenCard.applyCardEffect(this);
                         } else System.out.println("Invalid option! Card is not valid.");
 
@@ -101,11 +107,22 @@ public class UNO {
 
                                     System.out.println();
                                     System.out.println("Top Card: " + pile.get(pile.size() - 1).getCard());
+
+                                    if (pile.get(pile.size() - 1) instanceof WildCard &&
+                                            !pile.get(pile.size() - 1).getColor().equals("NONE"))
+                                        System.out.println("Active Color: " +
+                                                toTitleCase(pile.get(pile.size() - 1).getColor()));
+
                                     chosenDrawnCard.applyCardEffect(this);
                                 } else {
                                     System.out.println("Invalid option! Card is not valid.");
                                     System.out.println();
                                     System.out.println("Top Card: " + pile.get(pile.size() - 1).getCard());
+
+                                    if (pile.get(pile.size() - 1) instanceof WildCard &&
+                                            !pile.get(pile.size() - 1).getColor().equals("NONE"))
+                                        System.out.println("Active Color: " +
+                                                toTitleCase(pile.get(pile.size() - 1).getColor()));
                                 }
 
                                 break;
@@ -113,6 +130,11 @@ public class UNO {
                                 System.out.println("Turn skipped!");
                                 System.out.println();
                                 System.out.println("Top Card: " + pile.get(pile.size() - 1).getCard());
+
+                                if (pile.get(pile.size() - 1) instanceof WildCard &&
+                                        !pile.get(pile.size() - 1).getColor().equals("NONE"))
+                                    System.out.println("Active Color: " +
+                                            toTitleCase(pile.get(pile.size() - 1).getColor()));
                                 break;
                         }
 
@@ -176,6 +198,8 @@ public class UNO {
                 card.setActiveColor("BLUE");
                 break;
         }
+
+        System.out.println("Active Color: " + toTitleCase(card.getColor()));
     }
 
     public void drawFour(WildCard card) {
@@ -185,5 +209,9 @@ public class UNO {
 
         for (int i = 0; i < 4; i++)
             players.get(nextPlayerIdx).receiveCard(deck.drawCard());
+    }
+
+    public String toTitleCase(String s) {
+        return s.substring(0, 1).toUpperCase() + s.substring(1).toLowerCase();
     }
 }
