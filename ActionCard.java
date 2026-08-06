@@ -7,15 +7,15 @@ public class ActionCard extends Card {
     public void applyCardEffect(UNO game) {
         switch (getValue()) {
             case "S":
-                System.out.println("Effect: Skip next player!");
+                System.out.println("Effect: Skip next player");
                 game.skipNextPlayer();
                 break;
             case "R":
-                System.out.println("Effect: Reverse turn order!");
+                System.out.println("Effect: Reverse turn order");
                 game.reverseDirection();
                 break;
             case "+2":
-                System.out.println("Effect: Add 2 cards to next player!");
+                System.out.println("Effect: Add 2 cards to next player");
                 game.drawTwo();
                 break;
         }
