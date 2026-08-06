@@ -48,6 +48,8 @@ public class Input {
 
                 if (name.isEmpty() || name.isBlank())
                     System.out.println("Invalid input! Please enter a valid name.");
+                else if (names.contains(name))
+                    System.out.println("Invalid input! Please enter a new name.");
                 else {
                     isValid = true;
                     names.add(name);
