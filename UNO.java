@@ -24,7 +24,7 @@ public class UNO {
     }
 
     public void playGame() {
-        for (int i = 0; i < 2; i++) { // temp, og is 7
+        for (int i = 0; i < 7; i++) {
             for (Player player : players) {
                 Card card = deck.drawCard();
                 player.receiveCard(card);
@@ -116,6 +116,7 @@ public class UNO {
                                     chosenDrawnCard.applyCardEffect(this);
                                 } else {
                                     System.out.println("Invalid option! Card is not valid.");
+                                    System.out.println("Turn skipped!");
                                     System.out.println();
                                     System.out.println("Top Card: " + pile.get(pile.size() - 1).getCard());
 
