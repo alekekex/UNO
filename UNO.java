@@ -46,18 +46,18 @@ public class UNO {
     public void dealCards() {
         for (int i = 0; i < 7; i++) {
             for (Player player : players) {
-                Card card = deck.drawCard();
+                Card card = deck.drawCard(pile);
                 player.receiveCard(card);
             }
         }
     }
 
     public void displayStartingCard() {
-        Card card = deck.drawCard();
+        Card card = deck.drawCard(pile);
 
         while (!(card instanceof NormalCard)) {
             deck.addCardToBottom(card);
-            card = deck.drawCard();
+            card = deck.drawCard(pile);
         }
 
         pile.add(card);
@@ -117,7 +117,7 @@ public class UNO {
     }
 
     public boolean handleDrawCard(Player player) {
-        Card card = deck.drawCard();
+        Card card = deck.drawCard(pile);
         player.receiveCard(card);
 
         System.out.println();
@@ -222,7 +222,7 @@ public class UNO {
         advanceTurn();
 
         for (int i = 0; i < 2; i++)
-            nextPlayer.receiveCard(deck.drawCard());
+            nextPlayer.receiveCard(deck.drawCard(pile));
     }
 
     public void changeColor(WildCard card) {
@@ -260,6 +260,6 @@ public class UNO {
         advanceTurn();
 
         for (int i = 0; i < 4; i++)
-            nextPlayer.receiveCard(deck.drawCard());
+            nextPlayer.receiveCard(deck.drawCard(pile));
     }
 }
