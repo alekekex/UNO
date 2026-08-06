@@ -3,6 +3,7 @@ public class WildCard extends Card {
 
     public WildCard(String value) {
         super(value, "GRAY");
+        this.activeColor = "NONE";
     }
 
     public void setActiveColor(String activeColor) {
@@ -18,11 +19,11 @@ public class WildCard extends Card {
     public void applyCardEffect(UNO game) {
         switch (getValue()) {
             case "CC":
-                System.out.println("Effect: Changed color!"); // temp
+                System.out.println("Effect: Change color!");
                 game.changeColor(this);
                 break;
             case "+4":
-                System.out.println("Effect: Added 4 cards to next player and changed color!"); // temp
+                System.out.println("Effect: Add 4 cards to next player and change color!");
                 game.drawFour(this);
                 break;
         }
