@@ -1,5 +1,5 @@
 public class WildCard extends Card {
-    String activeColor;
+    private String activeColor;
 
     public WildCard(String value) {
         super(value, "GRAY");
@@ -8,6 +8,29 @@ public class WildCard extends Card {
 
     public void setActiveColor(String activeColor) {
         this.activeColor = activeColor;
+    }
+
+    public String getActiveColor() {
+        String color;
+
+        switch (activeColor) {
+            case "RED":
+                color = RED + "Red" + RESET;
+                break;
+            case "GREEN":
+                color = GREEN + "Green" + RESET;
+                break;
+            case "YELLOW":
+                color = YELLOW + "Yellow" + RESET;
+                break;
+            case "BLUE":
+                color = BLUE + "Blue" + RESET;
+                break;
+            default:
+                color = "None";
+        }
+
+        return color;
     }
 
     @Override
