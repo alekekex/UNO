@@ -11,23 +11,20 @@ public class Deck {
         shuffleDeck();
     }
 
-    public Card drawCard() {
-        Card card = deck.get(deck.size() - 1);
-        deck.remove(deck.size() - 1);
+    public Card drawCard(List<Card> pile) {
+        if (deck.isEmpty()) {
+            while (pile.size() > 1)
+                deck.add(pile.remove(0));
 
-        return card;
+            shuffleDeck();
+            System.out.println("The deck has been refilled!");
+        }
+
+        return deck.remove(deck.size() - 1);
     }
 
     public void addCardToBottom(Card card) {
         deck.add(0, card);
-    }
-
-    public int getDeckSize() {
-        return deck.size();
-    }
-
-    public boolean isDeckEmpty() {
-        return deck.isEmpty();
     }
 
     public void initializeDeck() {
