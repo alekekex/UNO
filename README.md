@@ -4,7 +4,7 @@ A console-based UNO game written in Java. This project was created to practice o
 
 ## Features
 
-* Support for 2–15 players
+* Support for 2–10 players
 * Standard 108-card UNO deck
 * Colored card display using ANSI escape codes
 * Normal, Skip, Reverse, Draw Two, Change Color, and Draw Four cards

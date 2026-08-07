@@ -19,7 +19,7 @@ public class Main {
                     UNO game = new UNO();
 
                     System.out.println("---------- PLAYER SETUP ----------");
-                    int count = Input.getIntInput("Enter number of players: ", 2, 15);
+                    int count = Input.getIntInput("Enter number of players: ", 2, 10);
                     List<String> names = Input.getPlayerNames(count);
                     System.out.println();
 
