@@ -29,7 +29,7 @@ public class Main {
                 case 2:
                     isRunning = false;
                     System.out.println("-------------- EXIT --------------");
-                    System.out.println("Thank you for playing UNO!");
+                    System.out.println("Thanks for playing UNO!");
                     System.out.println("Goodbye!");
                     break;
             }
