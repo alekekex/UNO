@@ -8,6 +8,7 @@ public class UNO {
     private int playerIdx;
     private int direction;
     private boolean isGameOver;
+    private Player winner;
 
     public UNO() {
         this.deck = new Deck();
@@ -28,14 +29,14 @@ public class UNO {
         displayStartingCard();
 
         while (!isGameOver) {
-            Player currPlayer = players.get(playerIdx);
+            Player player = players.get(playerIdx);
 
             System.out.println("-------- PLAYER " + (playerIdx + 1) + "\'S TURN --------");
-            displayPlayerHand(currPlayer);
-            playTurn(currPlayer);
+            displayPlayerHand(player);
+            playTurn(player);
 
-            checkIfUno(currPlayer);
-            checkIfGameOver(currPlayer);
+            checkIfUno(player);
+            checkIfGameOver(player);
 
             if (!isGameOver)
                 advanceTurn();
@@ -45,7 +46,7 @@ public class UNO {
     }
 
     public void dealCards() {
-        for (int i = 0; i < 2; i++) {
+        for (int i = 0; i < 7; i++) {
             for (Player player : players) {
                 Card card = deck.drawCard(pile);
                 player.receiveCard(card);
@@ -110,7 +111,8 @@ public class UNO {
             System.out.println();
             displayTopCard();
 
-            card.applyCardEffect(this);
+            if (!player.isHandEmpty())
+                card.applyCardEffect(this);
         } else System.out.println("Invalid option! Card is not valid.");
 
         System.out.println();
@@ -153,7 +155,8 @@ public class UNO {
             System.out.println();
             displayTopCard();
 
-            card.applyCardEffect(this);
+            if (!player.isHandEmpty())
+                card.applyCardEffect(this);
         } else {
             System.out.println("Invalid option! Card is not valid.");
             System.out.println("Turn skipped!");
@@ -184,15 +187,17 @@ public class UNO {
     }
 
     public void checkIfGameOver(Player player) {
-        if (player.isHandEmpty())
+        if (player.isHandEmpty()) {
             isGameOver = true;
+            winner = player;
+        }
     }
 
     public void displayWinner() {
         if (isGameOver) {
             System.out.println("----------- GAME OVER -----------");
-            System.out.println(players.get(playerIdx).getName() + " is the winner!");
-            System.out.println("Thank for playing!");
+            System.out.println(winner.getName() + " is the winner!");
+            System.out.println("Back to Main Menu...");
             System.out.println();
         }
     }
