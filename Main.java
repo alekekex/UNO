@@ -7,6 +7,7 @@ public class Main {
         boolean isRunning = true;
 
         while (isRunning) {
+            System.out.println("----------- MAIN MENU -----------");
             System.out.println("Welcome to UNO!");
             System.out.println("1) Play Game");
             System.out.println("2) Exit Program");
@@ -17,6 +18,7 @@ public class Main {
                 case 1:
                     UNO game = new UNO();
 
+                    System.out.println("---------- PLAYER SETUP ----------");
                     int count = Input.getIntInput("Enter number of players: ", 2, 15);
                     List<String> names = Input.getPlayerNames(count);
                     System.out.println();
@@ -26,7 +28,9 @@ public class Main {
                     break;
                 case 2:
                     isRunning = false;
-                    System.out.println("Exiting the program. Goodbye!");
+                    System.out.println("-------------- EXIT --------------");
+                    System.out.println("Thank you for playing UNO!");
+                    System.out.println("Goodbye!");
                     break;
             }
         }

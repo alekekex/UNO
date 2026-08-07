@@ -30,6 +30,7 @@ public class UNO {
         while (!isGameOver) {
             Player currPlayer = players.get(playerIdx);
 
+            System.out.println("-------- PLAYER " + (playerIdx + 1) + "\'S TURN --------");
             displayPlayerHand(currPlayer);
             playTurn(currPlayer);
 
@@ -44,7 +45,7 @@ public class UNO {
     }
 
     public void dealCards() {
-        for (int i = 0; i < 7; i++) {
+        for (int i = 0; i < 2; i++) {
             for (Player player : players) {
                 Card card = deck.drawCard(pile);
                 player.receiveCard(card);
@@ -189,7 +190,9 @@ public class UNO {
 
     public void displayWinner() {
         if (isGameOver) {
+            System.out.println("----------- GAME OVER -----------");
             System.out.println(players.get(playerIdx).getName() + " is the winner!");
+            System.out.println("Thank for playing!");
             System.out.println();
         }
     }
